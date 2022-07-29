@@ -743,6 +743,7 @@ int main()
     //input threshold for dummy reads 
     int upperThreshold = 40000;
     int lowerThreshold = 10000;
+    int granularity;
     std::cout << "Please enter benchmark: ";
     std::cin >> fileName;
     std::cout << std::endl;
@@ -827,11 +828,14 @@ int main()
     int pre = 0;
     int current = 0;
     //std::cout << "stash size before start is: " << stash.size() << std::endl;
+    std::cout << "Please enter the granularity at which you want to view stash growth: ";
+    std::cin >> granularity;
+    std::cout << std::endl;
     while(fin)
     {
         ct++;
 
-        if((ct) % 100000 == 0)
+        if((ct) % granularity == 0)
         {
             //std::cout << "currently on " << ct <<  " access with stash size " << stash.size() << " with dummy reads " << dummy << " with overall accesses " << (ct+dummy) << " ";
             //std::cout << "currently on " << ct <<  " access with stash size " << stash.size() << " with countspace " << countSpace << " with time ";
